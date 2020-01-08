@@ -1,0 +1,2 @@
+john: Oppose, meg: Support, kyle: Abstain
+john: Support, meg: Support, kyle: Abstain

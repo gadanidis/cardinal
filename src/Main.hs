@@ -9,14 +9,25 @@ import           Data.Char (isLetter)
 import           Text.Read (readMaybe)
 import           Data.Maybe (fromMaybe)
 
+import System.IO
+import System.Environment
+
 main :: IO ()
 main = do
-    putStr "enter input file path: "
-    inputFile <- getLine
-    input <- readFile inputFile
+    args <- getArgs
+    let path = case args of
+                 (x:_) -> x
+                 []    -> error "must provide a ballot file as argument"
+    input <- readFile path
     let ls = lines (rmSpace input)
     let ballots = map parseBallot ls
     print $ result ballots
+
+prompt :: String -> IO String
+prompt text = do
+    putStr text
+    hFlush stdout
+    getLine
 
 vote :: ReadP (String, Vote)
 vote = do
