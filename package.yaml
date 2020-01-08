@@ -1,0 +1,12 @@
+name: cardinal
+version: 0.1
+synopsis: A cardinal voting program for pub night voting
+github: gadanidis/cardinal
+
+executable:
+    main: Main.hs
+    source-dirs: src
+
+dependencies:
+    - base
+    - containers
