@@ -10,3 +10,4 @@ executable:
 dependencies:
     - base
     - containers
+    - split

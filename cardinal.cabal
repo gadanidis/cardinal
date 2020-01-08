@@ -1,17 +1,16 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b6bfbeacccd87aa348aca1c4833eab1cf16c41e693a2b8c925a39559a39f9abf
+-- hash: 0b1dd0178505f1aad0cee43a05ccd0bb0ee79e185141071d6e93217ec75da3d8
 
 name:                cardinal
 version:             0.1
 synopsis:            A cardinal voting program for pub night voting
 homepage:            https://github.com/gadanidis/cardinal#readme
 bug-reports:         https://github.com/gadanidis/cardinal/issues
-license:             BSD3
 license-file:        LICENSE
 build-type:          Simple
 
@@ -28,4 +27,5 @@ executable cardinal
   build-depends:
       base
     , containers
+    , split
   default-language: Haskell2010
