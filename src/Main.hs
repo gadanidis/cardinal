@@ -57,7 +57,7 @@ parseVote :: String -> Map String Vote
 parseVote = M.fromList . fmap resultToVote . map fst . readP_to_S vote
 
 parseBallot :: String -> Map String Vote
-parseBallot b = M.unions $ map parseVote (splitOn "," b)
+parseBallot = M.unions . map parseVote . splitOn ","
 
 data Vote = Support
           | Oppose
