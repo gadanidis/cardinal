@@ -1,7 +1,7 @@
-john: Oppose  , meg: Support  , kyle: Abstain
-meg: Support  , john: Abstain , kyle: Oppose
-john: Support , meg: Support  , kyle: Abstain
-kyle: Abstain , meg: Oppose   , john: Support
-meg: Support  , john: Support , kyle: Abstain
-meg: Oppose   , john: Abstain , kyle: Oppose
-meg: Support  , john: Abstain , kyle: Oppose
+john | Oppose  , meg | Support  , kyle | Abstain
+meg | Support  , john | Abstain , kyle | Oppose
+john | Support , meg | Support  , kyle | Abstain
+kyle | Abstain , meg | Oppose   , john | Support
+meg | Support  , john | Support , kyle | Abstain
+meg | Oppose   , john | Abstain , kyle | Oppose
+meg | Support  , john | Abstain , kyle | Oppose
