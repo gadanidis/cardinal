@@ -15,4 +15,7 @@ The program strips the ballot file of spaces before computing the result, so
 `haskell | Support` is the same as `haskell|Support` or `haskell | S u p p o r
 t`.
 
-The file `sample.txt` in this repository is an example ballot file.
+The file `sample.txt` in this repository is an example ballot file representing
+an election for a position with candidates `john`, `meg` and `kyle`. `meg` wins
+with a score of 3, `john` is the runner-up with a score of 2, and `kyle` comes
+in last with a score of -3.

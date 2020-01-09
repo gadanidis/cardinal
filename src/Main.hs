@@ -31,7 +31,7 @@ prompt text = do
 vote :: ReadP (String, Vote)
 vote = do
     name <- many1 (satisfy isLetter)
-    _ <- many1 (satisfy (\x -> x == '|' || x == ' '))
+    _ <- many1 (satisfy (== '|'))
     response <- many1 (satisfy isLetter)
     return (name, toVote response)
 
