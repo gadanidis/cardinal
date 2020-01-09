@@ -58,7 +58,7 @@ data Vote = Support
           deriving (Eq, Show, Read)
 
 toVote :: String -> Vote
-toVote = fromMaybe Abstain . readMaybe
+toVote x = (fromMaybe (error $ "Unrecognized vote: " ++ x) . readMaybe) x
 
 vote2int :: Vote -> Int
 vote2int Support = 1
