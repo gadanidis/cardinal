@@ -22,7 +22,7 @@ main = do
     input <- readFile path
     let ls = lines (rmSpace input)
     let ballots = map parseBallot ls
-    (pPrint . M.toDescList . result) ballots
+    (pPrint . M.toAscList . result) ballots
 
 prompt :: String -> IO String
 prompt text = do
