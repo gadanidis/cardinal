@@ -5,7 +5,6 @@ import           Data.Map.Strict (Map)
 
 import           Data.List.Split (splitOn)
 import           Text.ParserCombinators.ReadP
-import           Data.Char (isLetter)
 import           Text.Read (readMaybe)
 import           Data.Maybe (fromMaybe)
 import           Text.Pretty.Simple (pPrint)
@@ -40,7 +39,7 @@ vote :: ReadP Result
 vote = Result <$> anything <* divider <*> anything <* eof
 
 anything :: ReadP String
-anything = many1 $ satisfy isLetter
+anything = many1 $ satisfy (/= '|')
 
 divider :: ReadP String
 divider = many1 $ satisfy (== '|')
