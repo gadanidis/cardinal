@@ -12,4 +12,5 @@ A ballot consists of an arbitrary number of comma-separated votes.
 The format for a vote is `candidate: vote` (space optional), where `candidate`
 is an arbitrary string and `vote` is one of `Support`, `Oppose`, `Abstain`.
 
-`sample.txt` in this repository shows an example ballot file with two ballots.
+The file `sample.txt` in this repository is an example ballot file with two
+ballots.
