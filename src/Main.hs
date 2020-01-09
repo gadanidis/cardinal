@@ -38,7 +38,6 @@ vote = do
     return (name, toVote response)
 
 rmSpace :: String -> String
--- removes all spaces from a string
 rmSpace "" = ""
 rmSpace (c:cs) = if c == ' '
                 then rmSpace cs
