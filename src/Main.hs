@@ -16,12 +16,10 @@ import System.Environment
 main :: IO ()
 main = do
     args <- getArgs
-    let path = case args of
-                 (x:_) -> x
-                 []    -> error "must provide a ballot file as argument"
-    input <- readFile path
-    let ls = lines (rmSpace input)
-    let ballots = map parseBallot ls
+    let paths = if null args then error "must provide a ballot file as argument"
+                             else args
+    inputs <- mapM readFile paths
+    let ballots = (map (parseBallot . rmSpace) . lines . concat) inputs
     (pPrint . M.toAscList . result) ballots
 
 prompt :: String -> IO String
