@@ -8,6 +8,7 @@ import           Text.ParserCombinators.ReadP
 import           Data.Char (isLetter)
 import           Text.Read (readMaybe)
 import           Data.Maybe (fromMaybe)
+import           Text.Pretty.Simple (pPrint)
 
 import System.IO
 import System.Environment
@@ -21,7 +22,7 @@ main = do
     input <- readFile path
     let ls = lines (rmSpace input)
     let ballots = map parseBallot ls
-    print $ result ballots
+    pPrint $ result ballots
 
 prompt :: String -> IO String
 prompt text = do

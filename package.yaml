@@ -11,3 +11,4 @@ dependencies:
     - base
     - containers
     - split
+    - pretty-simple
