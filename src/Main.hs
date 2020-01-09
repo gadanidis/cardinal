@@ -20,7 +20,12 @@ main = do
                              else args
     inputs <- mapM readFile paths
     let ballots = (map (parseBallot . rmSpace) . lines . concat) inputs
-    (pPrint . M.toAscList . result) ballots
+    let outcome = result ballots
+    let m = maximum $ M.elems outcome
+    let winner = M.keys $ M.filter (== m) outcome
+    putStrLn $ "The winner is: " ++ head winner ++ "!"
+    putStrLn "Vote tallies:"
+    (pPrint . M.toAscList) outcome
 
 prompt :: String -> IO String
 prompt text = do
