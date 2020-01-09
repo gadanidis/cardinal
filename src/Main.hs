@@ -28,12 +28,17 @@ prompt text = do
     hFlush stdout
     getLine
 
-vote :: ReadP (String, Vote)
-vote = do
-    name <- many1 (satisfy isLetter)
-    _ <- many1 (satisfy (== '|'))
-    response <- many1 (satisfy isLetter)
-    return (name, toVote response)
+data Result = Result String String
+    deriving (Eq, Show)
+
+vote :: ReadP Result
+vote = Result <$> anything <* divider <*> anything <* eof
+
+anything :: ReadP String
+anything = many1 $ satisfy isLetter
+
+divider :: ReadP String
+divider = many1 $ satisfy (== '|')
 
 rmSpace :: String -> String
 rmSpace "" = ""
