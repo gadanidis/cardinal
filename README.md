@@ -5,12 +5,14 @@ election using [combined approval
 voting](https://en.wikipedia.org/wiki/Combined_approval_voting), a type of
 [cardinal voting system](https://en.wikipedia.org/wiki/Cardinal_voting).
 
-The program takes one argument, which is the path of the ballot file.
-The ballot file is a file containing all the ballots, one per line.
+The program takes one or more ballot files as arguments.
+The ballot file is a file containing one or more ballots, one ballot per line.
 
 A ballot consists of an arbitrary number of comma-separated votes.
-The format for a vote is `candidate: vote` (space optional), where `candidate`
-is an arbitrary string and `vote` is one of `Support`, `Oppose`, `Abstain`.
+The format for a vote is `candidate|vote`, where `candidate` is an arbitrary
+string and `vote` is one of `Support`, `Oppose`, `Abstain`.
+The program strips the ballot file of spaces before computing the result, so
+`haskell | Support` is the same as `haskell|Support` or `haskell | S u p p o r
+t`.
 
-The file `sample.txt` in this repository is an example ballot file with two
-ballots.
+The file `sample.txt` in this repository is an example ballot file.
