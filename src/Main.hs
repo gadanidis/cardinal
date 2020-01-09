@@ -46,8 +46,11 @@ rmSpace (c:cs) = if c == ' '
                 then rmSpace cs
                 else c : rmSpace cs
 
+resultToVote :: Result -> (String, Vote)
+resultToVote (Result a b) = fmap toVote (a, b)
+
 parseVote :: String -> Map String Vote
-parseVote = M.fromList . map fst . readP_to_S vote
+parseVote = M.fromList . fmap resultToVote . map fst . readP_to_S vote
 
 parseBallot :: String -> Map String Vote
 parseBallot b = M.unions $ map parseVote (splitOn "," b)
