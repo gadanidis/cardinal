@@ -10,8 +10,8 @@ import           Text.Read (readMaybe)
 import           Data.Maybe (fromMaybe)
 import           Text.Pretty.Simple (pPrint)
 
-import System.IO
-import System.Environment
+import           System.IO
+import           System.Environment
 
 main :: IO ()
 main = do
