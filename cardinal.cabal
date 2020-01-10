@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 26cadd3d440f1060a2e0dab3c6c1e97625707c0d76e693ccdcfca84ff07c45a3
+-- hash: f36187789f80c85547d98d8fa394f7d1981d57d48017a5b5cb48002c42af7c59
 
 name:                cardinal
 version:             0.1
@@ -28,6 +28,7 @@ executable cardinal
   build-depends:
       base
     , containers
+    , docopt
     , pretty-simple
     , split
   default-language: Haskell2010

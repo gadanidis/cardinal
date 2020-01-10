@@ -12,3 +12,4 @@ dependencies:
     - containers
     - split
     - pretty-simple
+    - docopt

@@ -1,3 +1,5 @@
+{-# LANGUAGE QuasiQuotes #-}
+
 module Main where
 
 import qualified Data.Map.Strict as M
@@ -10,20 +12,27 @@ import           Data.Maybe (fromMaybe)
 import           Text.Pretty.Simple (pPrint)
 
 import           System.Environment
+import           System.Console.Docopt
+import           Control.Monad (when)
+
+patterns :: Docopt
+patterns = [docoptFile|USAGE.txt|]
 
 main :: IO ()
 main = do
-    args <- getArgs
-    let paths = if null args then error "must provide a ballot file as argument"
-                             else args
+    args <- parseArgsOrExit patterns =<< getArgs
+    let paths = args `getAllArgs` argument "file"
+
     inputs <- mapM readFile paths
     let ballots = (map (parseBallot . rmSpace) . lines . concat) inputs
     let outcome = result ballots
     let m = maximum $ M.elems outcome
     let winner = M.keys $ M.filter (== m) outcome
     putStrLn $ "The winner is: " ++ head winner ++ "!"
-    putStrLn "Vote tallies:"
-    (pPrint . M.toAscList) outcome
+
+    when (args `isPresent` longOption "verbose") $ do
+        putStrLn "Vote tallies:"
+        (pPrint . M.toAscList) outcome
 
 data Result = Result String String
     deriving (Eq, Show)
