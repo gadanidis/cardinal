@@ -28,8 +28,8 @@ main = do
     let ballots = (map (parseBallot . rmSpace) . lines . concat) inputs
     let outcome = result ballots
     let m = maximum $ M.elems outcome
-    let winner = M.keys $ M.filter (== m) outcome
-    putStrLn $ "Winner(s): " ++ intercalate " and " winner ++ "!"
+    let top = M.keys $ M.filter (== m) outcome
+    putStrLn $ plural top "Winner" ++ ": " ++ intercalate " and " top ++ "!"
 
     when (args `isPresent` longOption "verbose") $ do
         putStrLn "Vote tallies:"
@@ -37,6 +37,10 @@ main = do
 
 data Result = Result String String
     deriving (Eq, Show)
+
+plural :: Foldable t => t a -> String -> String
+plural l st = if length l > 1 then st ++ "s"
+                              else st
 
 vote :: ReadP Result
 vote = Result <$> anything <* divider <*> anything <* eof
