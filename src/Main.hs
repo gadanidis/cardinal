@@ -5,6 +5,7 @@ module Main where
 import qualified Data.Map.Strict as M
 import           Data.Map.Strict (Map)
 
+import           Data.List (intercalate)
 import           Data.List.Split (splitOn)
 import           Text.ParserCombinators.ReadP
 import           Text.Read (readMaybe)
@@ -28,7 +29,7 @@ main = do
     let outcome = result ballots
     let m = maximum $ M.elems outcome
     let winner = M.keys $ M.filter (== m) outcome
-    putStrLn $ "The winner is: " ++ head winner ++ "!"
+    putStrLn $ "Winner(s): " ++ intercalate " and " winner ++ "!"
 
     when (args `isPresent` longOption "verbose") $ do
         putStrLn "Vote tallies:"
