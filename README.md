@@ -1,5 +1,7 @@
 # cardinal 🐦
 
+## Description and usage
+
 `cardinal` is a very simple Haskell program that computes the result of an
 election using [combined approval
 voting](https://en.wikipedia.org/wiki/Combined_approval_voting), a type of
@@ -19,3 +21,11 @@ The file `sample.txt` in this repository is an example ballot file representing
 an election for a position with candidates `john`, `meg` and `kyle`. `meg` wins
 with a score of 3, `john` is the runner-up with a score of 2, and `kyle` comes
 in last with a score of -3.
+
+## Installation instructions
+
+1. Install [the Haskell Tool Stack](https://www.haskellstack.org): `curl -sSL
+   https://get.haskellstack.org/ | sh`
+2. Clone this repository: `git clone https://github.com/gadanidis/cardinal`
+3. Navigate to the repository, build, and install: `cd cardinal && stack build
+   && stack install`
