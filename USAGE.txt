@@ -1,5 +1,5 @@
 Usage:
-    cardinal [--verbose] <file>...
+    cardinal [options] <file>...
 
 Options:
     -v, --verbose    Include the final vote tally in output
