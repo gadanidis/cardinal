@@ -9,7 +9,6 @@ import           Text.Read (readMaybe)
 import           Data.Maybe (fromMaybe)
 import           Text.Pretty.Simple (pPrint)
 
-import           System.IO
 import           System.Environment
 
 main :: IO ()
@@ -25,12 +24,6 @@ main = do
     putStrLn $ "The winner is: " ++ head winner ++ "!"
     putStrLn "Vote tallies:"
     (pPrint . M.toAscList) outcome
-
-prompt :: String -> IO String
-prompt text = do
-    putStr text
-    hFlush stdout
-    getLine
 
 data Result = Result String String
     deriving (Eq, Show)
